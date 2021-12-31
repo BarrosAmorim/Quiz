@@ -18,12 +18,20 @@ const Home: NextPage = () => {
 
   function respostaFornecida(indice: number) {
     setQuestao(questao.responderCom(indice))
-    console.log(indice)
+  }
+
+  function tempoEsgotado() {
+    if (!questao.respondida) {
+      setQuestao(questao.responderCom(-1))
+    }
   }
 
   return (
     <div className={styles.home}>
-      <Questao valor={questao}  respostaFornecida={respostaFornecida}/>
+      <Questao
+        valor={questao}
+        respostaFornecida={respostaFornecida}
+        tempoEsgotado={tempoEsgotado} />
     </div>
   )
 }
