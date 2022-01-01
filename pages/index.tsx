@@ -4,6 +4,7 @@ import Questao from '../components/Questao'
 import QuestaoModel from '../models/questao'
 import RespostaModel from '../models/resposta'
 import { useState } from 'react'
+import Botao from '../components/Botao'
 
 
 const questaoTeste = new QuestaoModel(1, 'Melhor cor?', [
@@ -30,8 +31,11 @@ const Home: NextPage = () => {
     <div className={styles.home}>
       <Questao
         valor={questao}
+        tempoResposta={5}
         respostaFornecida={respostaFornecida}
-        tempoEsgotado={tempoEsgotado} />
+        tempoEsgotado={tempoEsgotado}
+      />
+      <Botao texto='Próxima' href='/resultado'/>
     </div>
   )
 }

@@ -13,6 +13,7 @@ const letras = [
 
 type QuestaoProps = {
     valor: QuestaoModel
+    tempoResposta?: number
     respostaFornecida: (indice: number) => void
     tempoEsgotado: () => void
 }
@@ -36,7 +37,7 @@ const Questao = (props: QuestaoProps) => {
     return (
         <div className={styles.questao}>
             <Enunciado texto={questao.enunciado} />
-            <Temporizador duracao={10} tempoEsgotado={props.tempoEsgotado} />
+            <Temporizador duracao={props.tempoResposta ?? 10} tempoEsgotado={props.tempoEsgotado} />
             {rederizarRespostas()}
         </div>
     )
